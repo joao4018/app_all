@@ -70,8 +70,8 @@ class HomePage extends StatelessWidget {
                               fontSize: screenSize.height * 0.028333333,
                               fontWeight: FontWeight.w700))),
                   style: ElevatedButton.styleFrom(
-                      shape: new RoundedRectangleBorder(
-                        borderRadius: new BorderRadius.circular(10.0),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10.0),
                       ),
                       primary: Color(0xFFCED55B),
                       onSurface: Colors.grey,
@@ -81,7 +81,7 @@ class HomePage extends StatelessWidget {
                           screenSize.height * 0.083333333),
                       shadowColor: Colors.teal,
                       padding: EdgeInsets.symmetric(
-                          vertical: 20, horizontal: screenSize.width * 0.3)),
+                          vertical: screenSize.height * 0.01, horizontal: screenSize.width * 0.3)),
                   onPressed: () {},
                 ),
                 Container(
