@@ -8,8 +8,6 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     Size screenSize = MediaQuery.of(context).size;
     Orientation orientation = MediaQuery.of(context).orientation;
-    final ButtonStyle style =
-        ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
 
     return Scaffold(
       body: Container(
@@ -18,7 +16,7 @@ class HomePage extends StatelessWidget {
         child: Column(
           children: [
             Container(
-              margin: EdgeInsets.fromLTRB(15, screenSize.width * 1, 15, 0),
+              margin: EdgeInsets.fromLTRB(15, screenSize.height * 0.6, 15, 0),
               width: screenSize.width,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -28,29 +26,29 @@ class HomePage extends StatelessWidget {
                     "Bem vindo!",
                     textAlign: TextAlign.left,
                     style: TextStyle(
-                        fontSize: 15,
+                        fontSize: screenSize.height * 0.025,
                         color: Color(0xFFCED55B),
                         fontFamily: "Caveat",
                         fontWeight: FontWeight.w700),
                   )),
-                  SizedBox(height: 15),
+                  SizedBox(height: screenSize.height *  0.020),
                   Container(
                       child: Text(
                     "Loja Local DF!",
                     textAlign: TextAlign.left,
                     style: TextStyle(
-                        fontSize: 35,
+                        fontSize: screenSize.height * 0.058333333,
                         color: Colors.white,
                         fontFamily: "Caveat",
                         fontWeight: FontWeight.w700),
                   )),
-                  SizedBox(height: 15),
+                  SizedBox(height: screenSize.height *  0.020),
                   Container(
                       child: Text(
                     "Facilitamos a busca por produtos na sua região!",
                     textAlign: TextAlign.left,
                     style: TextStyle(
-                        fontSize: 18,
+                        fontSize: screenSize.height * 0.03,
                         color: Colors.white,
                         fontFamily: "Caveat",
                         fontWeight: FontWeight.w700),
@@ -58,14 +56,14 @@ class HomePage extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(height: 20),
+            SizedBox(height: screenSize.height * 0.033333333),
             Container(
               child: Column(children: [
                 ElevatedButton(
                   child: Text("Ver Produtos",
                       style: TextStyle(
                           color: Colors.black,
-                          fontSize: 17,
+                          fontSize: screenSize.height * 0.028333333,
                           fontStyle: FontStyle.normal)),
                   style: ElevatedButton.styleFrom(
                       shape: new RoundedRectangleBorder(
@@ -75,10 +73,10 @@ class HomePage extends StatelessWidget {
                       onSurface: Colors.grey,
                       // side: BorderSide(color: Colors.black, width: 1),
                       elevation: 10,
-                      minimumSize: Size(150, 50),
+                      minimumSize: Size(screenSize.width * 0.94, screenSize.height * 0.083333333),
                       shadowColor: Colors.teal,
                       padding:
-                          EdgeInsets.symmetric(vertical: 20, horizontal: 140)),
+                          EdgeInsets.symmetric(vertical: 20, horizontal: screenSize.width * 0.3)),
                   onPressed: () {},
                 ),
                 Container(
@@ -86,14 +84,14 @@ class HomePage extends StatelessWidget {
                     width: screenSize.width * 0.2,
                     child: TextButton(
                       style: TextButton.styleFrom(
-                        textStyle: const TextStyle(fontSize: 10),
+                        textStyle: TextStyle(fontSize: screenSize.height * 0.016666667),
                       ),
                       onPressed: () {},
-                      child: const Text(
+                      child: Text(
                         'Log in',
                         style: TextStyle(
                             color: Colors.white,
-                            fontSize: 17,
+                            fontSize: screenSize.height * 0.028333333,
                             fontStyle: FontStyle.normal),
                       ),
                     )
