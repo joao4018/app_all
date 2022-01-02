@@ -2,12 +2,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/widgets.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size screenSize = MediaQuery.of(context).size;
-    Orientation orientation = MediaQuery.of(context).orientation;
+    // Orientation orientation = MediaQuery.of(context).orientation;
 
     return Scaffold(
       body: Container(
@@ -22,37 +23,38 @@ class HomePage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
-                      child: Text(
-                    "Bem vindo!",
-                    textAlign: TextAlign.left,
-                    style: TextStyle(
-                        fontSize: screenSize.height * 0.025,
-                        color: Color(0xFFCED55B),
-                        fontFamily: "Caveat",
-                        fontWeight: FontWeight.w700),
-                  )),
-                  SizedBox(height: screenSize.height *  0.020),
+                      child: Text("Bem vindo!",
+                          textAlign: TextAlign.left,
+                          style: GoogleFonts.lato(
+                            textStyle: TextStyle(
+                                fontSize: screenSize.height * 0.025,
+                                color: Color(0xFFCED55B),
+                                fontFamily: "Caveat",
+                                fontWeight: FontWeight.w700),
+                          ))),
+                  SizedBox(height: screenSize.height * 0.020),
+                  Container(
+                      child: Text("Loja Local DF!",
+                          textAlign: TextAlign.left,
+                          style: GoogleFonts.lato(
+                            textStyle: TextStyle(
+                                fontSize: screenSize.height * 0.058333333,
+                                color: Colors.white,
+                                fontFamily: "Caveat",
+                                fontWeight: FontWeight.w700),
+                          ))),
+                  SizedBox(height: screenSize.height * 0.020),
                   Container(
                       child: Text(
-                    "Loja Local DF!",
-                    textAlign: TextAlign.left,
-                    style: TextStyle(
-                        fontSize: screenSize.height * 0.058333333,
-                        color: Colors.white,
-                        fontFamily: "Caveat",
-                        fontWeight: FontWeight.w700),
-                  )),
-                  SizedBox(height: screenSize.height *  0.020),
-                  Container(
-                      child: Text(
-                    "Facilitamos a busca por produtos na sua região!",
-                    textAlign: TextAlign.left,
-                    style: TextStyle(
-                        fontSize: screenSize.height * 0.03,
-                        color: Colors.white,
-                        fontFamily: "Caveat",
-                        fontWeight: FontWeight.w700),
-                  ))
+                          "Facilitamos a busca por produtos na sua região!",
+                          textAlign: TextAlign.left,
+                          style: GoogleFonts.lato(
+                            textStyle: TextStyle(
+                                fontSize: screenSize.height * 0.03,
+                                color: Colors.white,
+                                fontFamily: "Caveat",
+                                fontWeight: FontWeight.w700),
+                          )))
                 ],
               ),
             ),
@@ -61,10 +63,12 @@ class HomePage extends StatelessWidget {
               child: Column(children: [
                 ElevatedButton(
                   child: Text("Ver Produtos",
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontSize: screenSize.height * 0.028333333,
-                          fontStyle: FontStyle.normal)),
+                      style: GoogleFonts.lato(
+                          textStyle: TextStyle(
+                              fontFamily: "Caveat",
+                              color: Colors.black,
+                              fontSize: screenSize.height * 0.028333333,
+                              fontWeight: FontWeight.w700))),
                   style: ElevatedButton.styleFrom(
                       shape: new RoundedRectangleBorder(
                         borderRadius: new BorderRadius.circular(10.0),
@@ -73,10 +77,11 @@ class HomePage extends StatelessWidget {
                       onSurface: Colors.grey,
                       // side: BorderSide(color: Colors.black, width: 1),
                       elevation: 10,
-                      minimumSize: Size(screenSize.width * 0.94, screenSize.height * 0.083333333),
+                      minimumSize: Size(screenSize.width * 0.94,
+                          screenSize.height * 0.083333333),
                       shadowColor: Colors.teal,
-                      padding:
-                          EdgeInsets.symmetric(vertical: 20, horizontal: screenSize.width * 0.3)),
+                      padding: EdgeInsets.symmetric(
+                          vertical: 20, horizontal: screenSize.width * 0.3)),
                   onPressed: () {},
                 ),
                 Container(
@@ -84,15 +89,17 @@ class HomePage extends StatelessWidget {
                     width: screenSize.width * 0.2,
                     child: TextButton(
                       style: TextButton.styleFrom(
-                        textStyle: TextStyle(fontSize: screenSize.height * 0.016666667),
+                        textStyle: TextStyle(
+                            fontSize: screenSize.height * 0.016666667),
                       ),
                       onPressed: () {},
                       child: Text(
                         'Log in',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: screenSize.height * 0.028333333,
-                            fontStyle: FontStyle.normal),
+                        style: GoogleFonts.lato(
+                            textStyle: TextStyle(
+                                color: Colors.white,
+                                fontSize: screenSize.height * 0.028333333,
+                                fontStyle: FontStyle.normal)),
                       ),
                     )
                     // child: ButtonTe,
