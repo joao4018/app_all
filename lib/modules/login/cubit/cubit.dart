@@ -1,4 +1,7 @@
+import 'package:all_app/modules/register/shop_register_screen.dart';
+import 'package:all_app/shared/components/componets.dart';
 import 'package:bloc/bloc.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -14,6 +17,7 @@ class ShopLoginCubit extends Cubit<ShopLoginStates> {
   static  ShopLoginCubit get(context) => BlocProvider.of(context);
 
   void userLogin({
+    required BuildContext context,
     required String email,
     required String password,
   }) {
@@ -29,6 +33,7 @@ class ShopLoginCubit extends Cubit<ShopLoginStates> {
       print(value.data);
       loginModel = ShopLoginModel.fromJson(value.data);
       emit(ShopLoginSuccessState(loginModel!));
+      navigateTo(context,ShopRegisterScreen());
     }).catchError((error) {
       print(error.toString());
       emit(ShopLoginErrorState(error.toString()));
