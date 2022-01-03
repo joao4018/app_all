@@ -1,4 +1,4 @@
-const LOGIN = 'login';
+const LOGIN = 'https://api-login-all-it.herokuapp.com/login';
 
 const REGISTER = 'register';
 
