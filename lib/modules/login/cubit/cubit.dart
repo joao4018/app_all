@@ -1,20 +1,20 @@
-import 'package:all_app/modules/register/shop_register_screen.dart';
-import 'package:all_app/shared/components/componets.dart';
-import 'package:bloc/bloc.dart';
-import 'package:dio/dio.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'dart:convert';
+
 import 'package:all_app/models/login_model.dart';
 import 'package:all_app/modules/login/cubit/states.dart';
 import 'package:all_app/shared/network/end_point.dart';
+import 'package:all_app/shared/network/local/cache_helper.dart';
 import 'package:all_app/shared/network/remote/dio_helper.dart';
+import 'package:bloc/bloc.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ShopLoginCubit extends Cubit<ShopLoginStates> {
   ShopLoginCubit() : super(ShopLoginInitialState());
-  ShopLoginModel ?loginModel;
+  ShopLoginModel? loginModel;
 
-  static  ShopLoginCubit get(context) => BlocProvider.of(context);
+  static ShopLoginCubit get(context) => BlocProvider.of(context);
 
   void userLogin({
     required BuildContext context,
@@ -31,11 +31,11 @@ class ShopLoginCubit extends Cubit<ShopLoginStates> {
       },
     ).then((value) {
       print(value.data);
-      loginModel = ShopLoginModel.fromJson(value.data);
+      loginModel = ShopLoginModel.fromJson(jsonDecode(value.data));
+      CacheHelper.saveData(key: 'token', value: loginModel?.data?.token);
       emit(ShopLoginSuccessState(loginModel!));
-      navigateTo(context,ShopRegisterScreen());
     }).catchError((error) {
-      print(error.toString());
+      // print(error.toString());
       emit(ShopLoginErrorState(error.toString()));
     });
   }
@@ -45,7 +45,8 @@ class ShopLoginCubit extends Cubit<ShopLoginStates> {
 
   void changePasswordVisibility() {
     isPassword = !isPassword;
-    suffix = isPassword ? Icons.visibility_outlined : Icons.visibility_off_outlined;
+    suffix =
+        isPassword ? Icons.visibility_outlined : Icons.visibility_off_outlined;
     emit(ShopChangePasswordVisibilityState());
   }
 }

@@ -15,7 +15,6 @@ import 'package:all_app/shared/styles/themes.dart';
 import 'package:splash_screen_view/SplashScreenView.dart';
 
 void main() async {
-  // بيتأكد ان كل حاجه هنا في الميثود خلصت و بعدين يتفح الابلكيشن
   WidgetsFlutterBinding.ensureInitialized();
   Bloc.observer = MyBlocObserver();
   DioHelper.init();
