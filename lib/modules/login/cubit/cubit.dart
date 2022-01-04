@@ -17,7 +17,6 @@ class ShopLoginCubit extends Cubit<ShopLoginStates> {
   static ShopLoginCubit get(context) => BlocProvider.of(context);
 
   void userLogin({
-    required BuildContext context,
     required String email,
     required String password,
   }) {
@@ -32,7 +31,7 @@ class ShopLoginCubit extends Cubit<ShopLoginStates> {
     ).then((value) {
       print(value.data);
       loginModel = ShopLoginModel.fromJson(jsonDecode(value.data));
-      CacheHelper.saveData(key: 'token', value: loginModel?.data?.token);
+      loginModel?.status = true;
       emit(ShopLoginSuccessState(loginModel!));
     }).catchError((error) {
       // print(error.toString());

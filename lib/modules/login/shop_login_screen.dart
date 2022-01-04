@@ -99,7 +99,6 @@ class ShopLoginScreen extends StatelessWidget {
                           onSubmit: (value) {
                             if (formKey.currentState!.validate()) {
                               ShopLoginCubit.get(context).userLogin(
-                                context: context,
                                 email: emailController.text,
                                 password: passController.text,
                               );
@@ -127,7 +126,6 @@ class ShopLoginScreen extends StatelessWidget {
                                 function: () {
                                   if (formKey.currentState!.validate()) {
                                     ShopLoginCubit.get(context).userLogin(
-                                      context: context,
                                       email: emailController.text,
                                       password: passController.text,
 
